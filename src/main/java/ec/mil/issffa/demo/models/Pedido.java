@@ -20,5 +20,6 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name = "cliente")
     private Cliente cliente;
-    private Date subtotal;    
+    private double subtotal;  
+    private Date fechaPedido;  
 }
