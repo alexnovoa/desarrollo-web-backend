@@ -1,8 +1,10 @@
 package ec.mil.issffa.demo.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,5 +35,16 @@ public class ClienteController {
     public ResponseEntity<?> post(@RequestBody Cliente cliente){
         Cliente clienteAlmacenado =  clienteService.guardar(cliente);
         return ResponseEntity.ok(clienteAlmacenado);
+    }
+
+    @DeleteMapping("/v1/clientes/{idCliente}")
+    public ResponseEntity<?> delete(@PathVariable long idCliente){
+       Optional<Cliente> clienteOptional =  clienteService.getById(idCliente);
+       if(clienteOptional.isPresent()){
+            clienteService.eliminar(clienteOptional.get());
+            return ResponseEntity.ok("Registro eliminado");
+       }else{
+           return ResponseEntity.badRequest().body("No existe cliuente");
+       }
     }
 }
