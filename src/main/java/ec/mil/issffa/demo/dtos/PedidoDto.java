@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class PedidoDto {
+    
     private long cliente;
     private List<DetallePedidoDto> detalles;
 

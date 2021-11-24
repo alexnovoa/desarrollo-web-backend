@@ -32,6 +32,10 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
+    @GetMapping("/v1/clientes")
+    public ResponseEntity<?> get(){
+        return ResponseEntity.ok(clienteService.getAll());
+    }
  
     @PostMapping("/v1/clientes")
     public ResponseEntity<?> post(@RequestBody Cliente cliente){

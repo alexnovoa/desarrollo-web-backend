@@ -19,9 +19,11 @@ import ec.mil.issffa.demo.models.DetallePedido;
 import ec.mil.issffa.demo.models.Pedido;
 import ec.mil.issffa.demo.models.Producto;
 import ec.mil.issffa.demo.services.PedidoService;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/api")
+@Slf4j
 public class PedidoController {
     
     @Autowired
@@ -29,8 +31,9 @@ public class PedidoController {
 
     @PostMapping("/v1/pedidos")
     public ResponseEntity<?> post(@RequestBody PedidoDto pedidoDto){
+        log.info("Almacenando pedido "+pedidoDto);
         
-        Pedido pedido = new Pedido();
+        /*Pedido pedido = new Pedido();
         pedido.setFechaPedido(new Date());
         pedido.setSubtotal(pedidoDto.getSubtotal());
         Cliente cliente = new Cliente();
@@ -48,8 +51,9 @@ public class PedidoController {
             detallesEntidades.add(detallePedido);
         }
 
-        Pedido pedidoAlmacenado = pedidoService.guardar(pedido, detallesEntidades);
+        Pedido pedidoAlmacenado = pedidoService.guardar(pedido, detallesEntidades);*/
 
+        Pedido pedidoAlmacenado = pedidoService.guardarDto(pedidoDto);
         return ResponseEntity.ok(pedidoAlmacenado);
     }
 
