@@ -16,23 +16,27 @@ public final class ProveedorController {
     private ProveedorService proveedorService;
 
     @GetMapping("/v1/proveedores")
+    @CrossOrigin
     public ResponseEntity<?> get(){
         return ResponseEntity.ok(proveedorService.getAll());
     }
 
     @PostMapping("/v1/proveedores")
+    @CrossOrigin
     public ResponseEntity<?> post(@RequestBody Proveedor proveedor){
         Proveedor proveedorAlmcenado =  proveedorService.guardar(proveedor);
         return ResponseEntity.ok(proveedorAlmcenado);
     }
 
     @PutMapping("/v1/proveedores/{idProveedor}")
+    @CrossOrigin
     public ResponseEntity<?> put(@PathVariable long idProveedor, @RequestBody Proveedor proveedorActualizado){
         Proveedor clienteAlmacenado =  proveedorService.actualizar(idProveedor, proveedorActualizado);
         return ResponseEntity.ok(clienteAlmacenado);
     }
 
     @DeleteMapping("/v1/proveedores/{idProveedor}")
+    @CrossOrigin
     public ResponseEntity<?> delete(@PathVariable long idProveedor){
         Optional<Proveedor> clienteOptional =  proveedorService.getById(idProveedor);
         if(clienteOptional.isPresent()){

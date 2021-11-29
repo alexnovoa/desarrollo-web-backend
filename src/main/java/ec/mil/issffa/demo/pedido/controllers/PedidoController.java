@@ -21,6 +21,7 @@ public class PedidoController {
     private PedidoService pedidoService;
 
     @PostMapping("/v1/pedidos")
+    @CrossOrigin
     public ResponseEntity<?> post(@RequestBody PedidoDto pedidoDto){
         log.info("Almacenando pedido "+pedidoDto);
         Pedido pedidoAlmacenado = pedidoService.guardarDto(pedidoDto);
@@ -28,6 +29,7 @@ public class PedidoController {
     }
 
     @GetMapping("/v1/pedidos/{pagina}/pagina")
+    @CrossOrigin
     public ResponseEntity<?> getPageable(@PathVariable int pagina){
         Pageable pageable = PageRequest.of(pagina - 1, 10);
         Page<Pedido> pedidos = pedidoService.getAllPageable(false,pageable);

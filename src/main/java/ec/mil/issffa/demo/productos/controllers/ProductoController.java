@@ -17,23 +17,27 @@ public final class ProductoController {
     private ProductoService productoService;
 
     @GetMapping("/v1/productos")
+    @CrossOrigin
     public ResponseEntity<?> get(){
         return ResponseEntity.ok(productoService.getAll());
     }
 
     @PostMapping("/v1/productos")
+    @CrossOrigin
     public ResponseEntity<?> post(@RequestBody Producto producto){
         Producto productoAlmacenado =  productoService.guardar(producto);
         return ResponseEntity.ok(productoAlmacenado);
     }
 
     @PutMapping("/v1/productos/{idProducto}")
+    @CrossOrigin
     public ResponseEntity<?> put(@PathVariable long idProducto, @RequestBody ProductoDto productoActualizado){
         Producto productoAlmacenado =  productoService.actualizar(idProducto, productoActualizado);
         return ResponseEntity.ok(productoAlmacenado);
     }
 
     @DeleteMapping("/v1/productos/{idProducto}")
+    @CrossOrigin
     public ResponseEntity<?> delete(@PathVariable long idProducto){
         Optional<Producto> productoOptional =  productoService.getById(idProducto);
         if(productoOptional.isPresent()){
