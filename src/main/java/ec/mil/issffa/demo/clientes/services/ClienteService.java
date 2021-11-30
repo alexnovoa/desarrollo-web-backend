@@ -17,7 +17,7 @@ public class ClienteService {
 
 
     public List<Cliente> getAll(){
-        return clienteRepository.findAll();
+        return clienteRepository.findByEstado(1);
     }
 
 
@@ -27,6 +27,7 @@ public class ClienteService {
 
 
     public Cliente guardar(Cliente cliente){
+        cliente.setEstado(1);
         return clienteRepository.save(cliente);
     }
 
@@ -39,7 +40,8 @@ public class ClienteService {
     }
 
     public void eliminar (Cliente cliente){
-        clienteRepository.delete(cliente);
+        cliente.setEstado(2);
+        clienteRepository.save(cliente);
     }
 
 }

@@ -16,5 +16,5 @@ public class Cliente {
     private String cedula;
     private String nombre;
     private String telefono;
-
+    private int estado;
 }
