@@ -38,7 +38,7 @@ public class SwaggerConfig {
     public SecurityConfiguration security() {
         String token;
         try {
-            UserDetails userDetails = this.userDetailsService.loadUserByUsername("alex");
+            UserDetails userDetails = this.userDetailsService.loadUserByUsername("usuario2");
             token = this.jwtTokenUtil.obterToken(userDetails);
 
         } catch (Exception e) {

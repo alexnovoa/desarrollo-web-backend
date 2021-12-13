@@ -24,7 +24,7 @@ public final class ProductoController {
 
     @PostMapping("/v1/productos")
     @CrossOrigin
-    public ResponseEntity<?> post(@RequestBody Producto producto){
+    public ResponseEntity<?> post(@RequestBody ProductoDto producto){
         Producto productoAlmacenado =  productoService.guardar(producto);
         return ResponseEntity.ok(productoAlmacenado);
     }

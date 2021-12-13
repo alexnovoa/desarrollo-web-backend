@@ -1,7 +1,5 @@
 package ec.mil.issffa.demo.security;
 
-import ec.mil.issffa.demo.security.JwtUserDetailsServiceImpl;
-import ec.mil.issffa.demo.security.models.JwtAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

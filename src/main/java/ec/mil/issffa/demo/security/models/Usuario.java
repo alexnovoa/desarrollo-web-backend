@@ -19,8 +19,4 @@ public class Usuario {
     private String clave;
     private String rol;
     private String usuario;
-
-
-
-
 }

@@ -1,5 +1,6 @@
 package ec.mil.issffa.demo.productos.dtos;
 
+import ec.mil.issffa.demo.proveedores.models.Proveedor;
 import lombok.Data;
 
 

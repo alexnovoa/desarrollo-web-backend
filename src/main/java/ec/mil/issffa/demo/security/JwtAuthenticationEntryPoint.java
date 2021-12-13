@@ -1,4 +1,4 @@
-package ec.mil.issffa.demo.security.models;
+package ec.mil.issffa.demo.security;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
